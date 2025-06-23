@@ -28,7 +28,7 @@ const CodeEditor = () => {
     { value: 'markdown', label: 'Markdown' }
   ];
 
-  useEffect(() => {
+useEffect(() => {
     const token = getToken();
     if (!token) {
       toast.error('Authentication required');
@@ -36,8 +36,8 @@ const CodeEditor = () => {
       return;
     }
 
-    // Initialize socket connection
-    const newSocket = io('http://localhost:5000', {
+    // Initialize socket connection - use environment variable
+    const newSocket = io(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000', {
       auth: { token }
     });
 
