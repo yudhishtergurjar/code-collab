@@ -4,7 +4,7 @@ import axios from 'axios';
 const AuthContext = createContext();
 
 // Get the backend URL from environment variable
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL = 'https://code-collaboration-uoq4.onrender.com';
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
