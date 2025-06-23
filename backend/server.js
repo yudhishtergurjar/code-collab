@@ -15,7 +15,7 @@ const io = socketIo(server, {
   cors: { 
     origin: [
       "http://localhost:3000",
-      "https://cd-collab-frontend.vercel.app/register"
+      "https://cd-collab-frontend.vercel.app"
     ], 
     methods: ["GET", "POST"] 
   }
@@ -25,7 +25,7 @@ const io = socketIo(server, {
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://cd-collab-frontend.vercel.app/register"
+    "https://cd-collab-frontend.vercel.app"
   ],
   credentials: true
 }));
