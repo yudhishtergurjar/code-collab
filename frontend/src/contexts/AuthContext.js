@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      // ✅ FIXED: Use full backend URL instead of relative URL
+      
       const response = await axios.post(`${BACKEND_URL}/api/login`, {
         email,
         password
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      // ✅ FIXED: Use full backend URL instead of relative URL
+      
       const response = await axios.post(`${BACKEND_URL}/api/register`, {
         username,
         email,
