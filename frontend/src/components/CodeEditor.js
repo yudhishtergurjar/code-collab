@@ -35,9 +35,9 @@ useEffect(() => {
       navigate('/login');
       return;
     }
-
+    const BACKEND_URL = 'https://code-collaboration-uoq4.onrender.com';
     // Initialize socket connection - use environment variable
-    const newSocket = io(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000', {
+    const newSocket = io(BACKEND_URL || 'http://localhost:5000', {
       auth: { token }
     });
 
