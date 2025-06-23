@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -13,11 +12,23 @@ const setupSocketHandlers = require('./sockets/socketHandler');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
-  cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] }
+  cors: { 
+    origin: [
+      "http://localhost:3000",
+      "https://cd-collab-frontend-rn7vcb5wr-yudhishters-projects.vercel.app"
+    ], 
+    methods: ["GET", "POST"] 
+  }
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://cd-collab-frontend-rn7vcb5wr-yudhishters-projects.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // DB
