@@ -13,7 +13,7 @@ const Dashboard = () => {
   const createRoom = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/rooms/create');
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/rooms/create`);
       const newRoomId = response.data.roomId;
       toast.success(`Room created! ID: ${newRoomId}`);
       navigate(`/room/${newRoomId}`);
@@ -34,7 +34,7 @@ const Dashboard = () => {
 
     setLoading(true);
     try {
-      await axios.post('/api/rooms/join', { roomId: roomId.trim().toUpperCase() });
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/rooms/join`, { roomId: roomId.trim().toUpperCase() });
       navigate(`/room/${roomId.trim().toUpperCase()}`);
     } catch (error) {
       const message = error.response?.data?.message || 'Failed to join room';
